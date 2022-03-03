@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>All Books</title>
+</head>
+<body>
+<h2>All Books</h2>
+<hr>
+
+<table border ="1" style="width: 50%;">
+    <tr>
+        <th>Book ID</th>
+        <th>Book Name</th>
+        <th>Book Price</th>
+        <th>Book Qty</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.qty}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<a href="{% url 'homepage' %}">Home</a>
+
+<form method = "POST" onsubmit = "return confirm('do you want delete all records')">
+    {% csrf_token %}
+<input type = "submit" value = "delete_all_Books">
+
+</body>
+</html>
+
